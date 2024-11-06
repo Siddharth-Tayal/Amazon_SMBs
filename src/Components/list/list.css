@@ -1,0 +1,30 @@
+.main-div{
+    height: 70dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: relative;
+    font-family: sans-serif;
+}
+.child{
+    height: 60px;
+    width: 70%;
+    border: 1px solid black;
+}
+.serialNumber{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+button{
+    background-color: rgb(194, 144, 241);
+    color: aliceblue;
+    height: 30px;
+    width: 80px;
+    border-radius: 10px;
+    padding: 2px;
+}
