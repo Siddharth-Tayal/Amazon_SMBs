@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Logo from "../assets/Logo.jpeg";
+import Logo from "./assets/Logo.jpeg";
 
 export default function Navbar() {
   const [selectedPage, setSelectedPage] = useState("Home");
@@ -20,9 +20,8 @@ export default function Navbar() {
               (page) => (
                 <li
                   key={page}
-                  className={`mx-5 h-full font-bold cursor-pointer transition-all text-center duration-300 flex items-center ${
-                    selectedPage === page ? "border-b-4 border-yellow-500" : ""
-                  }`}
+                  className={`mx-5 h-full font-bold cursor-pointer transition-all text-center duration-300 flex items-center ${selectedPage === page ? "border-b-4 border-yellow-500" : ""
+                    }`}
                   onClick={() => handlePageChange(page)}>
                   {page}
                 </li>

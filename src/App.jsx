@@ -1,14 +1,42 @@
-import './App.css'
-import MainLandingPage from './Components/MainLandingPage'
-import Navbar from './Components/Navbar'
+import './App.css';
+import MainLandingPage from './Components/landingPage/MainLandingPage';
+import Navbar from './Components/navBar/Navbar';
+import UserProfile from './Components/userProfile/userProfile';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <div>
+        <Navbar />
+        <MainLandingPage />
+      </div>
+    ),
+  },
+  {
+    path: "/home",
+    element: (
+      <div>
+        <Navbar />
+      </div>
+    ),
+  },
+  {
+    path: "/Users",
+    element: (
+      <div>
+        <Navbar />
+        <UserProfile />
+      </div>
+    ),
+  },
+]);
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <MainLandingPage />
-    </>
-  )
+    <RouterProvider router={router} />
+  );
 }
 
-export default App
+export default App;

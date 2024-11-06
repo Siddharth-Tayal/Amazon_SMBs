@@ -1,6 +1,6 @@
 import React from "react";
-import Bgtext from "../assets/TextBg.jpeg";
-import TruckBg from "../assets/TruckBg.jpeg";   
+import Bgtext from "./assets/TextBg.jpeg";
+import TruckBg from "./assets/TruckBg.jpeg";
 
 export default function MainLandingPage() {
   return (
@@ -24,8 +24,8 @@ export default function MainLandingPage() {
             <p>Lorem ipsum dolor sit, amet consectetur </p>
             <p>Lorem ipsum dolor sit, </p>
             <div className="flex gap-3 mt-3">
-            <button className="bg-white border-black border px-2 py-1 font-bold rounded">←</button>
-            <button className="bg-black text-white px-2 py-1 font-bold rounded">→</button>
+              <button className="bg-white border-black border px-2 py-1 font-bold rounded">←</button>
+              <button className="bg-black text-white px-2 py-1 font-bold rounded">→</button>
 
             </div>
           </div>
@@ -33,10 +33,11 @@ export default function MainLandingPage() {
         </div>
       </div>
       <div
-        className="h-[70vh] bg-cover bg-center p-5"
+        className="h-[70vh] bg-cover bg-center p-5 bg-fixed"
         style={{ backgroundImage: `url(${TruckBg})` }}>
-        
-
+      </div>
+      <div className="h-40 bg-slate-500 text-center">
+        <p className="text-white font-bold">Copyright 2024</p>
       </div>
     </div>
   );
