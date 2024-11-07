@@ -1,8 +1,10 @@
 import './App.css';
 import MainLandingPage from './Components/landingPage/MainLandingPage';
 import Navbar from './Components/navBar/Navbar';
-import UserProfile from './Components/userProfile/userProfile';
+import Chat from './Components/chat/Chat';
+import Register from './Components/userProfile/Register';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Login from './Components/userProfile/Login';
 
 const router = createBrowserRouter([
   {
@@ -23,11 +25,29 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/Users",
+    path: "/register",
     element: (
       <div>
         <Navbar />
-        <UserProfile />
+        <Register />
+      </div>
+    ),
+  },
+  {
+    path: "/login",
+    element: (
+      <div>
+        <Navbar />
+        <Login />
+      </div>
+    ),
+  },
+  {
+    path: "/chat",
+    element: (
+      <div>
+        <Navbar />
+        <Chat />
       </div>
     ),
   },
