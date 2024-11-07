@@ -1,0 +1,16 @@
+name: Docker Image CI for GHCR
+
+on: 
+  push 
+
+jobs: 
+  build_and_publish: 
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build and push the Image
+        run: |
+          docker login --usewrname Sahildhillon0 -password ${{ secrets.GH_PAT}} ghcr.io
+          docker build . --tag sahildhillon0/amazon_smb:latest 
+          docker push sahildhillon0/amazon_smb:latest
