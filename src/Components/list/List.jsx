@@ -1,5 +1,4 @@
 import React from 'react'
-import api from './ListApi'
 import products from './ListApi';
 import './List.css'
 
@@ -11,7 +10,7 @@ function List() {
             {products.map(function (item) {
                 // console.log(item);
                 return (
-                    <div className='child'>
+                    <div className='child' key={item.serialNumber}>
                         <div className='serialNumber'>
                             <h3> Serial No.{item.serialNumber} </h3>
                             <h3>  Seller Name={item.sellerName} </h3>
@@ -19,10 +18,8 @@ function List() {
                             <h3> Expected Delivery Time={item.deliveryTime} </h3>
                             <button> show all</button>
                         </div>
-
                     </div>
                 )
-
             })}
         </div>
     )

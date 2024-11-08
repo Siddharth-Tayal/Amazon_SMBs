@@ -5,6 +5,9 @@ import Chat from './Components/chat/Chat';
 import Register from './Components/userProfile/Register';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from './Components/userProfile/Login';
+import Services from './Components/services/Services';
+import AboutUs from './Components/aboutUs/AboutUs';
+import ContactUs from './Components/contactUs/ContactUs';
 
 const router = createBrowserRouter([
   {
@@ -48,6 +51,33 @@ const router = createBrowserRouter([
       <div>
         <Navbar />
         <Chat />
+      </div>
+    ),
+  },
+  {
+    path: "/services",
+    element: (
+      <div>
+        <Navbar />
+        <Services />
+      </div>
+    ),
+  },
+  {
+    path: "/about-us",
+    element: (
+      <div>
+        <Navbar />
+        <AboutUs />
+      </div>
+    ),
+  },
+  {
+    path: "/contact-us",
+    element: (
+      <div>
+        <Navbar />
+        <ContactUs />
       </div>
     ),
   },
