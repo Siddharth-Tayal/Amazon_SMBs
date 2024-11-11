@@ -1,6 +1,6 @@
 import React from 'react'
 import products from './ListApi';
-import './List.css'
+import './list.css'
 
 function List() {
     // console.log(products);
