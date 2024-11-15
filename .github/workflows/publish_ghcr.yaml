@@ -1,4 +1,4 @@
-name: Docker Image CI for GHCR
+name: Docker Image CI and Deploy to GitHub Pages
 
 on: 
   push:
@@ -46,3 +46,11 @@ jobs:
           docker push ghcr.io/sahildhillon0/amazon_smb:latest
           docker push ghcr.io/sahildhillon0/amazon_smb:${{ env.VERSION_TAG }}
           docker push ghcr.io/sahildhillon0/amazon_smb:${{ env.SHORT_SHA }}
+
+      # Step 7: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist  # Adjust this to the directory where your static site files are located
+
