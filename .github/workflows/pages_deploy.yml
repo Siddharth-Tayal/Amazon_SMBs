@@ -30,7 +30,7 @@ jobs:
       # Step 4: Build the app
       - name: Build
         run: |
-          npm run build  # Make sure your `npm run build` works and outputs to the 'dist' folder
+          npm run build 
 
       # Step 5: Deploy to GitHub Pages (will create 'gh-pages' branch)
       - name: Deploy to GitHub Pages
