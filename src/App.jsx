@@ -1,114 +1,22 @@
-import './App.css';
-import MainLandingPage from './Components/landingPage/MainLandingPage';
-import Navbar from './Components/navBar/Navbar';
-import Chat from './Components/chat/Chat';
-import Register from './Components/userProfile/Register';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Login from './Components/userProfile/Login';
-import Services from './Components/services/Services';
-import AboutUs from './Components/aboutUs/AboutUs';
-import ContactUs from './Components/contactUs/ContactUs';
-import List from './Components/list/List';
-
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: (
-        <div>
-          <Navbar />
-          <MainLandingPage />
-        </div>
-      ),
-    },
-    {
-      path: "/home",
-      element: (
-        <div>
-          <Navbar />
-        </div>
-      ),
-    },
-    {
-      path: "/register",
-      element: (
-        <div>
-          <Navbar />
-          <Register />
-        </div>
-      ),
-    },
-    {
-      path: "/login",
-      element: (
-        <div>
-          <Navbar />
-          <Login />
-        </div>
-      ),
-    },
-    {
-      path: "/chat",
-      element: (
-        <div>
-          <Navbar />
-          <Chat />
-        </div>
-      ),
-    },
-    {
-      path: "/services",
-      element: (
-        <div>
-          <Navbar />
-          <Services />
-        </div>
-      ),
-    },
-    {
-      path: "/about-us",
-      element: (
-        <div>
-          <Navbar />
-          <AboutUs />
-        </div>
-      ),
-    },
-    {
-      path: "/contact-us",
-      element: (
-        <div>
-          <Navbar />
-          <ContactUs />
-        </div>
-      ),
-    },
-    {
-      path: "/list",
-      element: (
-        <div>
-          <Navbar />
-          <List />
-        </div>
-      ),
-    },
-    {
-      path: "*", // Fallback route for unmatched paths
-      element: (
-        <div>
-          <Navbar />
-          <h1>Page Not Found</h1>
-        </div>
-      ),
-    },
-  ],
-  {
-    basename: "/Amazon_SMBs",
-  }
-);
-
+import { Navigate, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/home/Home";
+import Login from "./pages/login/Login";
+import SignUp from "./pages/signup/SignUp";
+import { Toaster } from "react-hot-toast";
+import { useAuthContext } from "./context/AuthContext";
 function App() {
-  return <RouterProvider router={router} />;
+  const {authUser}=useAuthContext()
+  return (
+    <div className="p-4 h-full flex items-center justify-center">
+      <Routes>
+        <Route path="/" element={authUser? <Home/> :  <Navigate to={"/login"} />} />
+        <Route path="/login" element={authUser? <Navigate to='/' /> :<Login />} />
+        <Route path="/signup" element={authUser? <Navigate to='/' /> : <SignUp/>} />
+      </Routes>
+      <Toaster />
+    </div>
+  );
 }
 
 export default App;
