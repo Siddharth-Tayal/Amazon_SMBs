@@ -53,14 +53,9 @@ export default function Navbar() {
     }
   };
 
-  const handleLogin = () => {
-    console.log("Navigate to login page or show login modal");
-    navigate("/login");
-
-  };
   const handleRegister = () => {
     console.log("Navigate to login page or show login modal");
-    navigate("/register");
+    navigate("/Amazon_SMBs/chat");
 
   };
 
@@ -94,20 +89,10 @@ export default function Navbar() {
           </ul>
         </div>
         <div className="flex items-center">
-          {user ? (
+          {(
             <>
-              <p className="text-center h-full flex items-center p-3">{user.username || user.email}</p>
-              <button onClick={handleLogout} className="bg-black text-white p-4 h-full">
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <p onClick={handleLogin} className="text-center h-full flex items-center p-3 cursor-pointer">
-                Log in
-              </p>
               <button onClick={handleRegister} className="bg-black text-white p-4 h-full">
-                Register
+                Chat
               </button>
             </>
           )}

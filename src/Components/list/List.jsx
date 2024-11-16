@@ -27,7 +27,7 @@ function List() {
         <div className='main-div'>
             {products.map(function (item) {
                 return (
-                    <div className='child' key={item.serialNumber}>
+                    <div className='child m-2' key={item.serialNumber} >
                         <div className='serialNumber'>
                             <h3>Serial No. {item.serialNumber}</h3>
                             <h3>Seller Name: {item.sellerName}</h3>
