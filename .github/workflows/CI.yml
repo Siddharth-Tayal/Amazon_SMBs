@@ -54,3 +54,5 @@ jobs:
             sahildhillon0/react-app:latest
             sahildhillon0/react-app:${{ env.VERSION_TAG }}
             sahildhillon0/react-app:${{ env.SHORT_SHA }}
+
+      #finsih
