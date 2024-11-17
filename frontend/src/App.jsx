@@ -31,17 +31,21 @@ function App() {
         {/* chat Route */}
         <Route
           path={`${BASE_PATH}chat`}
-          element={authUser ? <Home /> : <Navigate to={`${BASE_PATH}login`} />}
+          element={authUser ? <><Navbar /><Home /></> : <Navigate to={`${BASE_PATH}login`} />}
         />
         {/* Login Route */}
         <Route
           path={`${BASE_PATH}login`}
-          element={authUser ? <Navigate to={BASE_PATH} /> : <Login />}
+          element={
+            authUser ? <Navigate to={BASE_PATH} /> :
+              <><Navbar /><div className="w-[40%] m-auto mt-20 shadow-xl"><Login /></div></>}
         />
         {/* SignUp Route */}
         <Route
           path={`${BASE_PATH}signup`}
-          element={authUser ? <Navigate to={BASE_PATH} /> : <SignUp />}
+          element=
+          {authUser ? <Navigate to={BASE_PATH} /> :
+            <><Navbar /><div className="w-[40%] m-auto mt-20 shadow-xl"><SignUp /></div></>}
         />
         {/* list */}
         <Route
