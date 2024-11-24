@@ -5,7 +5,7 @@ import Login from "./pages/login/Login";
 import SignUp from "./pages/signup/SignUp";
 import { Toaster } from "react-hot-toast";
 import List from "./Components/list/List";
-import Navbar from "./Components/navbar/Navbar";
+import Navbar from "./Components/navBar/Navbar";
 import MainLandingPage from "./Components/landingPage/MainLandingPage";
 import { useAuthContext } from "./context/AuthContext";
 import Services from "./Components/services/Services";
