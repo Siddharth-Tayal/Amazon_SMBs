@@ -1,5 +1,5 @@
 import MessageContainer from "../../Components/messages/MessageContainer.jsx"
-import Sidebar from "../../components/sidebar/Sidebar.jsx"
+import Sidebar from "../../Components/sidebar/Sidebar.jsx"
 
 const Home = () => {
   return (
