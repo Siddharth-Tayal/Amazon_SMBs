@@ -10,7 +10,7 @@ import { fileURLToPath } from 'url';
 
 // Define __filename and __dirname
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const _dirname = path.resolve();
 
 const app = express();
 dotenv.config();
@@ -24,12 +24,12 @@ app.use("/api/messages", messageRoutes);
 app.use("/api/users", userRoutes);
 
 // Serve static files from the frontend
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
+app.use(express.static(path.join(_dirname, '/client/dist')));
 
 // Serve index.html for all other requests
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../frontend/dist/index.html'));
-});
+    res.sendFile(path.join(_dirname, 'client', 'dist', 'index.html'));
+})
 
 // Start the server
 app.listen(PORT, () => {
