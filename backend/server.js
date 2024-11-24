@@ -24,11 +24,11 @@ app.use("/api/messages", messageRoutes);
 app.use("/api/users", userRoutes);
 
 // Serve static files from the frontend
-app.use(express.static(path.join(_dirname, '/client/dist')));
+app.use(express.static(path.join(_dirname, '/frontend/dist')));
 
 // Serve index.html for all other requests
 app.get('*', (req, res) => {
-    res.sendFile(path.join(_dirname, 'client', 'dist', 'index.html'));
+    res.sendFile(path.join(_dirname, 'frontend', 'dist', 'index.html'));
 })
 
 // Start the server
