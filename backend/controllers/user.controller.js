@@ -9,6 +9,6 @@ export const getUsersForSidebar = async (req, res) => {
     res.status(200).json(filteredUsers);
   } catch (error) {
     console.error("Error in user controller getUsersForSidebar ", error.message);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: error });
   }
 }

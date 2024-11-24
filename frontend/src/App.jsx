@@ -8,6 +8,9 @@ import List from "./Components/list/List";
 import Navbar from "./Components/navbar/Navbar";
 import MainLandingPage from "./Components/landingPage/MainLandingPage";
 import { useAuthContext } from "./context/AuthContext";
+import Services from "./Components/services/Services";
+import AboutUs from "./Components/aboutUs/AboutUs";
+import ContactUs from "./Components/contactUs/ContactUs";
 
 const BASE_PATH = "/Amazon_SMBs/";
 
@@ -19,7 +22,17 @@ function App() {
       <Routes>
         {/* Protected Route */}
         <Route
-          path={BASE_PATH}
+          path={`${BASE_PATH}`}
+          element={
+            <div>
+              <Navbar />
+              <MainLandingPage />
+            </div>
+          }
+
+        />
+        <Route
+          path={`${BASE_PATH}home`}
           element={
             <div>
               <Navbar />
@@ -37,14 +50,14 @@ function App() {
         <Route
           path={`${BASE_PATH}login`}
           element={
-            authUser ? <Navigate to={BASE_PATH} /> :
+            authUser ? <Navigate to={`${BASE_PATH}home`} /> :
               <><Navbar /><div className="w-[40%] m-auto mt-20 shadow-xl"><Login /></div></>}
         />
         {/* SignUp Route */}
         <Route
           path={`${BASE_PATH}signup`}
           element=
-          {authUser ? <Navigate to={BASE_PATH} /> :
+          {authUser ? <Navigate to={`${BASE_PATH}home`} /> :
             <><Navbar /><div className="w-[40%] m-auto mt-20 shadow-xl"><SignUp /></div></>}
         />
         {/* list */}
@@ -55,6 +68,36 @@ function App() {
               <Navbar />
               <div className="m-5"></div>
               <List />
+            </div>
+          }
+        />
+        <Route
+          path={`${BASE_PATH}services`}
+          element={
+            <div className="flex flex-col">
+              <Navbar />
+              <div className="m-5"></div>
+              <Services />
+            </div>
+          }
+        />
+        <Route
+          path={`${BASE_PATH}aboutus`}
+          element={
+            <div className="flex flex-col">
+              <Navbar />
+              <div className="m-5"></div>
+              <AboutUs />
+            </div>
+          }
+        />
+        <Route
+          path={`${BASE_PATH}contactus`}
+          element={
+            <div className="flex flex-col">
+              <Navbar />
+              <div className="m-5"></div>
+              <ContactUs />
             </div>
           }
         />

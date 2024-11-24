@@ -5,6 +5,8 @@ import { auth, db } from "../userProfile/services/firebase";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { getDoc, doc } from "firebase/firestore";
 
+const BASE_PATH = "/Amazon_SMBs/";
+
 const Navbar = React.memo(function Navbar() {
   const navigate = useNavigate();
   const [selectedPage, setSelectedPage] = useState("Home");
@@ -39,15 +41,17 @@ const Navbar = React.memo(function Navbar() {
         <div>
           <img src={Logo} alt="Logo" className="h-[100%]" />
         </div>
-        <div>
+        <div className="hidden sm:block">
           <ul className="flex h-full items-center">
-            {["Home", "Services", "About Us", "Contact Us", "Chat"].map((page) => (
+            {["Home", "Services", "About Us", "Contact Us", "List"].map((page) => (
               <li
                 key={page}
-                className={`mx-5 h-full font-bold cursor-pointer transition-all text-center duration-300 flex items-center ${selectedPage === page ? "border-b-4 border-yellow-500" : ""}`}
-                onClick={() => handlePageChange(page)}
-              >
-                <Link to={`/${page.replace(/\s+/g, '').toLowerCase()}`} className="w-full h-full flex items-center justify-center">
+                className={`mx-5 h-full font-bold cursor-pointer transition-all text-center duration-300 flex items-center ${selectedPage === page ? "border-b-4 border-yellow-500" : ""
+                  }`}
+                onClick={() => handlePageChange(page)}>
+                <Link
+                  to={`${BASE_PATH}${page.replace(/\s+/g, "").toLowerCase()}`}
+                  className="w-full h-full flex items-center justify-center">
                   {page}
                 </Link>
               </li>
@@ -57,7 +61,7 @@ const Navbar = React.memo(function Navbar() {
         <div className="flex items-center">
           {(
             <>
-              <button onClick={handleRegister} className="bg-black text-white p-4 h-full">
+              <button onClick={handleRegister} className="bg-black text-white p-4 h-full hidden sm:block">
                 Chat
               </button>
             </>

@@ -1,6 +1,7 @@
 import React from "react";
 import Bgtext from "./assets/TextBg.jpeg";
 import TruckBg from "./assets/TruckBg.jpeg";
+import Footer from "../Reusable Components/Footer";
 
 export default function MainLandingPage() {
   return (
@@ -36,9 +37,7 @@ export default function MainLandingPage() {
         className="h-[70vh] bg-cover bg-center p-5 bg-fixed"
         style={{ backgroundImage: `url(${TruckBg})` }}>
       </div>
-      <div className="h-40 bg-slate-500 text-center">
-        <p className="text-white font-bold">Copyright 2024</p>
-      </div>
+      <Footer />
     </div>
   );
 }
