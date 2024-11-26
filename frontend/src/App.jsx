@@ -22,6 +22,15 @@ function App() {
       <Routes>
         {/* Protected Route */}
         <Route
+          path={`/`}
+          element={
+            <div>
+              <Navbar />
+              <MainLandingPage />
+            </div>
+          }
+        />{" "}
+        <Route
           path={`${BASE_PATH}`}
           element={
             <div>
@@ -29,7 +38,6 @@ function App() {
               <MainLandingPage />
             </div>
           }
-
         />
         <Route
           path={`${BASE_PATH}home`}
@@ -39,26 +47,52 @@ function App() {
               <MainLandingPage />
             </div>
           }
-
         />
         {/* chat Route */}
         <Route
           path={`${BASE_PATH}chat`}
-          element={authUser ? <><Navbar /><Home /></> : <Navigate to={`${BASE_PATH}login`} />}
+          element={
+            authUser ? (
+              <>
+                <Navbar />
+                <Home />
+              </>
+            ) : (
+              <Navigate to={`${BASE_PATH}login`} />
+            )
+          }
         />
         {/* Login Route */}
         <Route
           path={`${BASE_PATH}login`}
           element={
-            authUser ? <Navigate to={`${BASE_PATH}home`} /> :
-              <><Navbar /><div className="w-[40%] m-auto mt-20 shadow-xl"><Login /></div></>}
+            authUser ? (
+              <Navigate to={`${BASE_PATH}home`} />
+            ) : (
+              <>
+                <Navbar />
+                <div className="w-[40%] m-auto mt-20 shadow-xl">
+                  <Login />
+                </div>
+              </>
+            )
+          }
         />
         {/* SignUp Route */}
         <Route
           path={`${BASE_PATH}signup`}
-          element=
-          {authUser ? <Navigate to={`${BASE_PATH}home`} /> :
-            <><Navbar /><div className="w-[40%] m-auto mt-20 shadow-xl"><SignUp /></div></>}
+          element={
+            authUser ? (
+              <Navigate to={`${BASE_PATH}home`} />
+            ) : (
+              <>
+                <Navbar />
+                <div className="w-[40%] m-auto mt-20 shadow-xl">
+                  <SignUp />
+                </div>
+              </>
+            )
+          }
         />
         {/* list */}
         <Route
