@@ -4,8 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon backend/server.js",
-    "build": "npm i --prefix frontend && npm run build --prefix frontend",
-    "start": "npm i && node backend/server.js"
+    "build": "npm install && npm i --prefix frontend && npm run build --prefix frontend",
+    "start": "node backend/server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
